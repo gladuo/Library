@@ -1,0 +1,27 @@
+.book-title {
+	margin: 2rem 0 1rem;
+	font-weight: 500;
+}
+
+.book-image {
+	width: 15rem;
+}
+
+.col.op {
+	border-left: solid lightgray;
+	padding-left: 1.5rem;
+}
+
+.brief-text {
+	text-indent: 2rem;
+}
+
+.rec-img {
+	display: block;
+	margin: auto;
+	width: 12rem;
+}
+
+.rec-title {
+	padding: 1rem;
+}

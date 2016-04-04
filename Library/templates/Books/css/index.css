@@ -1,0 +1,17 @@
+.header {
+	background: lightcyan url(../img/library.jpg) center;
+	background-size: cover;
+}
+
+.section {
+	padding-top: 10rem;
+	height: 40rem;	
+}
+
+.header-text {
+	font-weight: 500;
+}
+
+.intro1 img {
+	height: 10rem;
+}

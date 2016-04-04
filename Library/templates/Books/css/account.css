@@ -1,0 +1,15 @@
+.user-nav {
+	height: 3rem;
+	line-height: 3rem;
+	background-color: rgba(86, 90, 92, 0.9);
+}
+
+.settings-panel {
+	padding: 2rem;
+}
+
+.settings-module {
+	height: 3rem;
+	line-height: 3rem;
+	background: lightgray;
+}

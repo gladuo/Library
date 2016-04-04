@@ -1,0 +1,32 @@
+.banner {
+	height: 15rem;
+	background: lightcyan url(../../bower_components/Materialize/templates/masonry-template/background3.jpg) center;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.banner-text {
+	padding-top: 4rem;
+}
+
+.search-form {
+	padding: 10rem 0 2rem;
+}
+
+.divider {
+	margin-bottom: 0.5rem;
+}
+
+.rec-category {
+	margin: 1rem;
+}
+
+.rec-img {
+	display: block;
+	margin: auto;
+	width: 12rem;
+}
+
+.rec-title {
+	padding: 1rem;
+}
