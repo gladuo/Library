@@ -1,0 +1,28 @@
+{% extends "Library/base.html" %}
+{% load staticfiles %}
+		{% block css %}
+		<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" />
+		{% endblock %}
+		{% block content %}
+		<div class="header section">
+			<h1 class="header-text white-text center">
+					Build your own library
+			</h1>
+			<div class="row center">
+				<h5 class="white-text">Find your loving book</h5>
+			</div>
+			<div class="row center">
+				<a href="{% url 'registration_register' %}" class="btn btn-large"> Join </a>
+			</div>
+		</div>
+		<div class="intro1 section">
+			<div class="row center">
+				<img src="{% static 'img/Font-Book.png' %}" />
+			</div>
+			<div class="row center">
+				<h4>About "Library"?</h4>
+				<p> We say "Books are the stepping stones to human progress." </p>
+				<p> Therefore, Library is just your "Elevator"! </p>
+			</div>
+		</div>
+		{% endblock %}

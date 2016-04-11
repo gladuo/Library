@@ -1,31 +1,15 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="../bower_components/Materialize/dist/css/materialize.css" />
-		<link rel="stylesheet" type="text/css" href="css/book.css"/>
-		<title> Library </title>
-	</head>
-	
-	<body>
-		<div class="nav">
-			<nav>
-				<div class="nav-wrapper container">
-					<a class="brand-logo center" href="#">Library</a>
-					<ul class="right ">
-						<li><a href="#">Register</a></li>
-						<li><a href="#">Log in</a></li>
-					</ul>
-				</div>
-			</nav>
-		</div>
-		
+{% extends "Library/base.html" %}
+{% load staticfiles %}
+		{% block css %}
+		<link rel="stylesheet" type="text/css" href="{% static 'css/book.css' %}" /> 
+		{% endblock %}
+	    {% block content %}
 		<div class="book-info">
 			<div class="container">
 				<div class="row">
 					<h4 class="book-title col s12">追风筝的人</h4>
 					<div class="col s4">
-						<img class="book-image left" src="img/s1727290.jpg"/>
+						<img class="book-image left" src="{% static 'img/s1727290.jpg' %}"/>
 					</div>
 					<div class="col s6">
 						<p>作者: [美] 卡勒德·胡赛尼</p>
@@ -75,25 +59,25 @@
 				<div class="row">
 					<h5 class="brief-title col s12">喜欢读"追风筝的人"的人也喜欢  · · · · · ·</h5>
 					<div class="rec-book col s3">
-						<img class="rec-img" src="img/s1727290.jpg"/>
+						<img class="rec-img" src="{% static 'img/s1727290.jpg' %}"/>
 						<div class="rec-title center">
 							<a href="#">追风筝的人</a>
 						</div>
 					</div>
 					<div class="rec-book col s3">
-						<img class="rec-img" src="img/s1727290.jpg"/>
+						<img class="rec-img" src="{% static 'img/s1727290.jpg' %}"/>
 						<div class="rec-title center">
 							<a href="#">追风筝的人</a>
 						</div>
 					</div>
 					<div class="rec-book col s3">
-						<img class="rec-img" src="img/s1727290.jpg"/>
+						<img class="rec-img" src="{% static 'img/s1727290.jpg' %}"/>
 						<div class="rec-title center">
 							<a href="#">追风筝的人</a>
 						</div>
 					</div>
 					<div class="rec-book col s3">
-						<img class="rec-img" src="img/s1727290.jpg"/>
+						<img class="rec-img" src="{% static 'img/s1727290.jpg' %}"/>
 						<div class="rec-title center">
 							<a href="#">追风筝的人</a>
 						</div>
@@ -101,40 +85,4 @@
 				</div>
 			</div>
 		</div>
-		
-		<footer class="page-footer" style="margin-top: 0;">
-			<div class="container">
-				<div class="row">
-					<div class="col s8">
-						<h5 class="white-text">
-							What is Library actually doing?
-						</h5>
-						<ol class="white-text">
-							<li> Bring your loving books.</li>
-							<li> Bring your friends.</li>
-						</ol>
-					</div>
-					<div class="col s4">
-						<h5 class="white-text">
-							Connect
-						</h5>
-						<ul class="white-text">
-							<li><a href="#" class="white-text">Weibo</a></li>
-							<li><a href="#" class="white-text">Wechat</a></li>
-						</ul>
-					</div>
-				</div>
-
-			</div>
-			<div class="footer-copyright">
-				<div class="container">
-					<span>Designed by Gladuo.</span>
-				</div>
-			</div>
-		</footer>
-
-		<script src="../bower_components/jquery/dist/jquery.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../bower_components/Materialize/dist/js/materialize.js" type="text/javascript" charset="utf-8"></script>
-	</body>
-
-</html>
+		{% endblock %}

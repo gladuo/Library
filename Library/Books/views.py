@@ -1,8 +1,13 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
 
-from models import Book, Category
+from models import Book, Tag
 
 
-def index(request):
-    context = {'text': 'hello world'}
-    return render(request, 'Books/index.html', context=context)
+def book_search(request):
+    return render(request, 'Books/recommend.html')
+
+
+def book_info(request):
+    return render(request, 'Books/book.html')
+

@@ -1,0 +1,42 @@
+{% extends "Library/base.html" %}
+{% load staticfiles %}
+		{% block css %}
+		<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}" /> 
+		{% endblock %}
+		{% block title %}
+		Login
+		{% endblock %}
+		{% block content %}
+		<div class="login section">
+			<div class="container">
+				<div class="row">
+					<div class="col s6 push-s3">
+						<h3>Login in</h3>
+					</div>
+				</div>
+				<form action="." method="post">
+					{% csrf_token %}
+					<div class="row">
+						<div class="input-field col s6 push-s3">
+							{{ form.username }}
+							<label for="{{ form.username.id_for_label }}">Username</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s6 push-s3">
+							{{ form.password }}
+							<label for="{{ form.password.id_for_lable }}">Password</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col s6 push-s3">
+							<input class="btn btn-block" type="submit" value="Log in" />
+						</div>
+					</div>
+					
+					<input type="hidden" name="next" value="{{ next }}" />
+				</form>
+			</div>
+		</div>
+		
+		{% endblock %}

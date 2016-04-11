@@ -4,11 +4,11 @@
 	background-color: rgba(86, 90, 92, 0.9);
 }
 
-.settings-panel {
+.user-panel {
 	padding: 2rem;
 }
 
-.settings-module {
+.settings-title {
 	height: 3rem;
 	line-height: 3rem;
 	background: lightgray;

@@ -1,0 +1,46 @@
+{% extends "Users/user_base.html" %} 
+{% load staticfiles %} 
+{% block settings %}
+<div class="settings-panel row">
+	<div class="col s4">
+		<ul>
+			<li class="active">
+				<h5><a href="{% url 'user_settings' %}"> 编辑个人资料 </a></h5></li>
+			<li>
+				<h5><a href="{% url 'auth_password_change' %}"> 重设密码 </a></h5></li>
+			<li>
+		</ul>
+	</div>
+	<div class="col s8">
+		<h5 class="settings-title row">必填</h5>
+		<form action="/accounts/user" method="post">
+			{% csrf_token %}
+			<div class="row">
+				<div class="input-field col s12">
+					{{ user_form.username }}
+					<label for="{{ user_form.username.id_for_label }}">Username</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					{{ user_form.email }}
+					<label for="{{ user_form.email.id_for_label }}">Email</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					{{ user_form.password }}
+					<label for="{{ user_form.password.id_for_lable }}">Password</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12">
+					<input class="btn btn-block" type="submit" value="register" />
+				</div>
+			</div>
+
+			<input type="hidden" name="next" value="{{ next }}" />
+		</form>
+	</div>
+</div>
+{% endblock %}

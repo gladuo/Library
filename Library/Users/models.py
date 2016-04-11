@@ -1,14 +1,19 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.contrib.auth.models import User
 
 
-class User(models.Model):
-    name = models.CharField(max_length=20, unique=True)
+class UserProfile(models.Model):
+    user = models.OneToOneField(User)
     age = models.IntegerField(default=20)
     SEX = (
         ('boy', 'male'),
         ('girl', 'female'),
     )
     gender = models.CharField(max_length=1, choices=SEX)
-    group = models.CharField(max_length=20)
+    university = models.CharField(max_length=128)
+    description = models.TextField()
+
+    def __unicode__(self):
+        return self.username

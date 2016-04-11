@@ -1,6 +1,6 @@
 .banner {
 	height: 15rem;
-	background: lightcyan url(../../bower_components/Materialize/templates/masonry-template/background3.jpg) center;
+	background: lightcyan url(../bower_components/Materialize/templates/parallax-template/background2.jpg) center;
 	background-size: cover;
 	overflow: hidden;
 }

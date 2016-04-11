@@ -1,0 +1,23 @@
+{% extends "Library/base.html" %}
+{% load staticfiles %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/settings.css' %}" />
+{% endblock %}
+{% block content %}
+<div class="user">
+	<nav class="user-nav">
+		<div class="nav-wrapper container">
+			<ul>
+				<li><a href="{% url 'user_profile' %}">个人信息</a></li>
+				<li><a href="{% url 'user_settings' %}">账号设置</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="user-panel">
+		<div class="container">
+            {% block settings %}
+            {% endblock %}
+		</div>
+	</div>
+</div>
+{% endblock %}
