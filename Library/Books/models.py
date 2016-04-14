@@ -14,25 +14,25 @@ class Tag(models.Model):
 
 
 class Book(models.Model):
-    title = models.CharField(max_length=128)
-    isbn13 = models.IntegerField(unique=True, null=True)
-    douban_id = models.IntegerField(unique=True)
-    subtitle = models.CharField(max_length=128)
+    title = models.CharField(max_length=128, blank=True)
+    isbn = models.IntegerField(unique=True, null=True, blank=True)  # Todo: modify
+    douban_id = models.IntegerField(unique=True, null=True, blank=True)  # Todo: modify
+    subtitle = models.CharField(max_length=128, blank=True)
     url = models.URLField()
-    image = models.URLField()
-    author = jsonfield.JSONField()  # a list
-    author_intro = models.TextField()
-    translator = jsonfield.JSONField()  # a list
-    publisher = models.CharField(max_length=128)
-    pubdate = models.CharField(max_length=20)
-    tags = jsonfield.JSONField()  # a list
-    binding = models.CharField(max_length=20)
-    pages = models.IntegerField()
-    price = models.CharField(max_length=20)
-    series = jsonfield.JSONField()  # a list
-    summary = models.TextField()
-    catalog = models.TextField()
-    tag_category = models.ManyToManyField(Tag)
+    image = models.URLField(blank=True)
+    author = jsonfield.JSONField(blank=True)  # a list
+    author_intro = models.TextField(blank=True)
+    translator = jsonfield.JSONField(blank=True)  # a list
+    publisher = models.CharField(max_length=128, blank=True)
+    pubdate = models.CharField(max_length=20, blank=True)
+    tags = jsonfield.JSONField(blank=True)  # a list
+    binding = models.CharField(max_length=20, blank=True)
+    pages = models.IntegerField(blank=True, null=True)
+    price = models.CharField(max_length=20, blank=True)
+    series = jsonfield.JSONField(blank=True)  # a list
+    summary = models.TextField(blank=True)
+    catalog = models.TextField(blank=True)
+    tag_category = models.ManyToManyField(Tag, blank=True)
 
     def save(self, *args, **kwargs):
         super(Book, self).save(*args, **kwargs)

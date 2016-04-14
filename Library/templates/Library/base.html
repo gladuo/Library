@@ -16,13 +16,14 @@
 				<div class="nav-wrapper container">
 					<a class="brand-logo center" href="{% url 'index' %}">Library</a>
 					<ul class="right ">
+						{% if user.is_authenticated %}
 						<ul id="nav-dropdown" class="dropdown-content">
+							<li><a href="{% url 'user_profile' %}"> Profile </a></li>
 						    <li><a href="{% url 'user_settings' %}"> Settings </a></li>
 						    <li class="divider"></li>
 						    <li><a href="{% url 'auth_logout' %}"> Log out </a></li>
 						</ul>
-						{% if user.is_authenticated %}
-                        <li><a class="nav-dropdown" href="{% url 'user_profile' %}" data-activates="nav-dropdown">{{ user.username }}<i class="material-icons right">arrow_drop_down</i></a></li>
+                        <li><a class="nav-dropdown" href="{% url 'user_profile' %}" data-activates="nav-dropdown"> {{ user.username }} <i class="material-icons right">arrow_drop_down</i></a></li>
                         {% else %}
 						<li><a href="{% url 'registration_register' %}">Register</a></li>
 						<li><a href="{% url 'auth_login' %}">Log in</a></li>

@@ -16,16 +16,17 @@ from Books.models import Book
 
 
 def load_data():
-    with open('', 'r') as f:
+    with open('/Users/ChaiDuo/Code/Library/Library/book.json', 'r') as f:
         for book_json in f.readlines():
-            print book_json
             book = json.loads(book_json)
             print book["title"]
-            try:
+            if not Book.objects.get(isbn=book["isbn13"]):
+                book_data = Book(isbn=book["isbn13"])
+            else:
                 book_data = Book()
+            try:
                 book_data.title = book["title"]
                 book_data.subtitle = book["subtitle"]
-                book_data.isbn = book["isbn13"]
                 book_data.douban_id = book["id"]
                 book_data.author = book["author"]
                 book_data.translator = book["translator"]

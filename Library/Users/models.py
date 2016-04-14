@@ -8,12 +8,12 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User)
     age = models.IntegerField(default=20)
     SEX = (
-        ('boy', 'male'),
-        ('girl', 'female'),
+        ('male', 'boy'),
+        ('female', 'girl'),
     )
-    gender = models.CharField(max_length=1, choices=SEX)
-    university = models.CharField(max_length=128)
-    description = models.TextField()
+    gender = models.CharField(max_length=6, choices=SEX, default='male')
+    university = models.CharField(max_length=128, blank=True)
+    description = models.TextField(max_length=128, blank=True)
 
     def __unicode__(self):
-        return self.username
+        return self.user.username
