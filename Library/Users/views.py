@@ -16,8 +16,9 @@ def index(request):
 
 @login_required()
 def user_profile(request):
+    profile, created = UserProfile.objects.get_or_create(user=request.user)
     context = {
-        'user_profile': UserProfile.objects.get(user=request.user),
+        'user_profile': profile,
     }
     return render(request, 'Users/user_profile.html', context=context)
 
@@ -26,7 +27,6 @@ def user_profile(request):
 def user_edit(request):
     if request.method == 'POST':
         user_form = UserFormEdit(data=request.POST, instance=request.user)
-        print user_form
         if user_form.is_valid:
             new_info = user_form.save()
         else:
@@ -42,7 +42,7 @@ def user_edit(request):
 @login_required()
 def user_settings(request):
 
-    old_profile = UserProfile.objects.get(user=request.user)
+    old_profile, created = UserProfile.objects.get_or_create(user=request.user)
 
     if request.method == 'POST':
         user_profile_form = UserProfileForm(data=request.POST, instance=old_profile)
