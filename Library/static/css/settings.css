@@ -14,6 +14,10 @@
 	background: lightgray;
 }
 
-.active {
-	text-decoration: underline;
+.settings-nav a {
+	color: gainsboro;
+}
+
+.settings-nav .active a {
+	color: gray;	
 }
