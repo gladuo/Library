@@ -7,21 +7,21 @@
 		<div class="book-info">
 			<div class="container">
 				<div class="row">
-					<h4 class="book-title col s12">追风筝的人</h4>
+					<h4 class="book-title col s12">{{ book.title }}</h4>
 					<div class="col s4">
-						<img class="book-image left" src="{% static 'img/s1727290.jpg' %}"/>
+						<img class="book-image left" src="{{ book.image }}"/>
 					</div>
 					<div class="col s6">
-						<p>作者: [美] 卡勒德·胡赛尼</p>
-						<p>出版社: 上海人民出版社</p>
-						<p>原作名: The Kite Runner</p>
-						<p>译者: 李继宏</p>
-						<p>出版年: 2006-5</p>
-						<p>页数: 362</p>
-						<p>定价: 29.00元</p>
-						<p>装帧: 平装</p>
-						<p>丛书: 卡勒德·胡赛尼作品</p>	
-						<p>ISBN: 9787208061644</p></p>
+						<p>作者: {% for author in book.author %}{{ author }} {% endfor %}</p>
+						<p>出版社: {{ book.publisher }}</p>
+						<p>原作名: {{ book.origin_title }}</p>
+						<p>译者: {% for translator in book.author %}{{ translator }} {% endfor %}</p>
+						<p>出版年: {{ book.pubdate }}</p>
+						<p>页数: {{ book.pages }}</p>
+						<p>定价: {{ book.price }}</p>
+						<p>装帧: {{ book.bingding }}</p>
+						<p>丛书: {{ book.series.title }}</p>	
+						<p>ISBN: {{ book.isbn }}</p></p>
 					</div>
 					<div class="op col s2">
 						<div class="row">
@@ -38,23 +38,15 @@
 				</div>
 				<div class="row">
 					<h5 class="brief-title col s12">内容简介  · · · · · ·</h5>
-					<p class="col s12 brief-text">12岁的阿富汗富家少爷阿米尔与仆人哈桑情同手足。然而，在一场风筝比赛后，发生了一件悲惨不堪的事，阿米尔为自己的懦弱感到自责和痛苦，逼走了哈桑，不久，自己也跟随父亲逃往美国。 成年后的阿米尔始终无法原谅自己当年对哈桑的背叛。为了赎罪，阿米尔再度踏上暌违二十多年的故乡，希望能为不幸的好友尽最后一点心力，却发现一个惊天谎言，儿时的噩梦再度重演，阿米尔该如何抉择？ 故事如此残忍而又美丽，作者以温暖细腻的笔法勾勒人性的本质与救赎，读来令人荡气回肠。
-					</p>
+					<p class="col s12 brief-text">{{ book.summary }}</p>
 				</div>
 				<div class="row">
 					<h5 class="brief-title col s12">作者简介  · · · · · ·</h5>
-					<p class="col s12 brief-text">卡勒德·胡赛尼（Khaled Hosseini），1965年生于阿富汗喀布尔市，后随父亲迁往美国。胡赛尼毕业于加州大学圣地亚哥医学系，现居加州。“立志拂去蒙在阿富汗普通民众面孔的尘灰，将背后灵魂的悸动展示给世人。”著有小说《追风筝的人》(The Kite Runner，2003）、《灿烂千阳》(A Thousand Splendid Suns，2007)、《群山回唱》（And the Mountains Echoed,2013）。作品全球销量超过4000万册。2006年，因其作品巨大的国际影响力，胡赛尼获得联合国人道主义奖，并受邀担任联合国难民署亲善大使。
-					</p>
+					<p class="col s12 brief-text">{{ book.author_intro }}</p>
 				</div>
 				<div class="row">
 					<h5 class="brief-title col s12">目录  · · · · · ·</h5>
-					<p class="col s12 brief-text">第一章 第二章 第三章 第四章 第五章 第六章 第七章 第八章 第九章 第十章 第十一章 第十二章 第十三章 第十四章 第十五章 第十六章 第十七章 第十八章 第十九章 第二十章 第二十一章 第二十二章 第二十三章 第二十四章 第二十五章 译后记
-					</p>
-				</div>
-				<div class="row">
-					<h5 class="brief-title col s12">丛书信息</h5>
-					<p class="col s12 brief-text">卡勒德·胡赛尼作品 (共3册), 这套丛书还有 《灿烂千阳》,《群山回唱》
-					</p>
+					<p class="col s12 brief-text">{{ book.catalog }}</p>
 				</div>
 				<div class="row">
 					<h5 class="brief-title col s12">喜欢读"追风筝的人"的人也喜欢  · · · · · ·</h5>

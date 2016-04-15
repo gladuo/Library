@@ -27,7 +27,7 @@ class Book(models.Model):
     pubdate = models.CharField(max_length=20, blank=True)
     tags = jsonfield.JSONField(blank=True)  # a list
     binding = models.CharField(max_length=20, blank=True)
-    pages = models.IntegerField(blank=True, null=True)
+    pages = models.CharField(max_length=20, blank=True)
     price = models.CharField(max_length=20, blank=True)
     series = jsonfield.JSONField(blank=True)  # a list
     summary = models.TextField(blank=True)

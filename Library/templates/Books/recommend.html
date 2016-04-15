@@ -11,7 +11,12 @@
 		<div class="recommend">
 			<div class="container">
 				<div class="search-form row">
-					<input type="search" name="-search" required="true" placeholder="Search books here..." x-webkit-speech="search" x-webkit-grammar="builtin:search" lang="zh-CN">
+					<form action="/search" method="get">
+						<div class="col s10">
+							<input type="search" name="-search" required="true" placeholder="Search books here...">
+						</div>
+						<input class="btn btn-flat" type="submit" value="搜索"/>
+					</form>
 				</div>
 				<div class="row">
 					<h3>推荐的书</h3>
