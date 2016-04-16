@@ -8,10 +8,13 @@ from models import UserProfile
 
 
 def index(request):
-    context = {
-        'user': request.user
-    }
-    return render(request, 'Library/index.html', context=context)
+    if not request.user:
+        context = {
+            'user': request.user
+        }
+        return render(request, 'Library/index.html', context=context)
+    else:
+        return redirect('search')
 
 
 @login_required()
