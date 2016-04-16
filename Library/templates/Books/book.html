@@ -9,7 +9,7 @@
 				<div class="row">
 					<h4 class="book-title col s12">{{ book.title }}</h4>
 					<div class="col s4">
-						<img class="book-image left" src="{{ book.image }}"/>
+						<img class="book-image left" src="{{ book.images.large }}"/>
 					</div>
 					<div class="col s6">
 						<p>作者: {% for author in book.author %}{{ author }} {% endfor %}</p>
@@ -46,7 +46,7 @@
 				</div>
 				<div class="row">
 					<h5 class="brief-title col s12">目录  · · · · · ·</h5>
-					<p class="col s12 brief-text">{{ book.catalog }}</p>
+					<pre class="col s12">{{ book.catalog }}</pre>
 				</div>
 				<div class="row">
 					<h5 class="brief-title col s12">喜欢读"追风筝的人"的人也喜欢  · · · · · ·</h5>

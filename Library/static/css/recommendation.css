@@ -30,3 +30,8 @@
 .rec-title {
 	padding: 1rem;
 }
+
+.search-item {
+	padding: 2rem 2rem 0;
+	border-top: 1px dashed #ddd;
+}

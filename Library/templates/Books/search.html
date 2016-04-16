@@ -1,0 +1,41 @@
+{% extends "Library/base.html" %}
+{% load staticfiles %}
+		{% block css %}
+		<link rel="stylesheet" type="text/css" href="{% static 'css/recommendation.css' %}" />
+        {% endblock %}
+		{% block content %}
+		<div class="search">
+			<div class="container">
+				<div class="search-form row">
+					<form action="/search" method="get">
+						<div class="col s12">
+							<input type="search" name="q" placeholder="Search books here..." value="{{ q }}">
+						</div>
+					</form>
+				</div>
+				<div class="search-result">
+					<h5>共有 {{ count }} 条满足要求的搜索结果</h5>
+					{% for book in books %}
+					<div class="search-item row">
+						<div class="search-item-img col s3">
+							<a href="{{ book.url }}"><img src="{{ book.image }}"/></a>
+						</div>
+						<div class="search-item-info col s7">
+							<h5><a href="{{ book.url }}">{{ book.title }}</a></h5>
+							<p>{{ book.author.0 }} 等 / {{ book.publisher }} / {{ book.pubdate }} / {{ book.price }}</p>
+							<p>tags: {% for tag in book.tags.all %} {{ tag.name }}  {% endfor %}</p>
+						</div>
+						<div class="op col s2">
+							<div class="row">
+								<a class="btn btn-block" href="#">想读</a>
+							</div>
+							<div class="row">
+								<a class="btn btn-block" href="#">读过</a>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+        {% endblock %}
