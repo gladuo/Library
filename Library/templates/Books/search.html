@@ -23,7 +23,11 @@
 						<div class="search-item-info col s7">
 							<h5><a href="{{ book.url }}">{{ book.title }}</a></h5>
 							<p>{{ book.author.0 }} 等 / {{ book.publisher }} / {{ book.pubdate }} / {{ book.price }}</p>
-							<p>tags: {% for tag in book.tags.all %} {{ tag.name }}  {% endfor %}</p>
+							<ul class="tags">
+								{% for tag in book.tags.all %}
+								<li class="tag">{{ tag }}</li>
+								{% endfor %}
+							</ul>
 						</div>
 						<div class="op col s2">
 							<div class="row">

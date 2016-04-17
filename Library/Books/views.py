@@ -19,26 +19,39 @@ def book_search(request):
     context = {
         'q': search_text,
         'count': len(book_list),
-        'books': book_list[:10],
+        'books': book_list[:50],
     }
     print book_list
     return render(request, 'Books/search.html', context=context)
 
 
-def book_info(request, id=1, isbn=9787550217454):
-    if id:
-        try:
-            book = Book.objects.get(id=id)
-        except Book.DoesNotExist:
-            return redirect('recommendation')
-    else:
-        try:
-            book = Book.objects.get(isbn=isbn)
-        except Book.DoesNotExist:
-            return redirect('recommendation')
-    print book.tags.all()
+def book_isbn_info(request, isbn):
+    try:
+        book = Book.objects.get(isbn=isbn)
+        print book
+    except Book.DoesNotExist:
+        return redirect('recommendation')
     context = {
         'book': book
     }
     return render(request, 'Books/book.html', context=context)
+
+
+def book_id_info(request, id):
+    try:
+        book = Book.objects.get(id=id)
+    except Book.DoesNotExist:
+        return redirect('recommendation')
+    context = {
+        'book': book
+    }
+    return render(request, 'Books/book.html', context=context)
+
+
+def tag_info(request, tag):
+    book_list = Book.objects.filter(tags=tag)  # Todo
+    context = {
+        'books': book_list,
+    }
+    return render(request, 'Books/tag_info.html', context=context)
 

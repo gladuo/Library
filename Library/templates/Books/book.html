@@ -1,4 +1,5 @@
 {% extends "Library/base.html" %}
+{% load humanize %}
 {% load staticfiles %}
 		{% block css %}
 		<link rel="stylesheet" type="text/css" href="{% static 'css/book.css' %}" /> 
@@ -37,6 +38,14 @@
 					</div>
 				</div>
 				<div class="row">
+					<h5 class="brief-title col s12">标签</h5>
+					<ul class="tags col s12">
+						{% for tag in book.tags.all %}
+						<li class="tag">{{ tag }}</li>
+						{% endfor %}
+					</ul>
+				</div>
+				<div class="row">
 					<h5 class="brief-title col s12">内容简介  · · · · · ·</h5>
 					<p class="col s12 brief-text">{{ book.summary }}</p>
 				</div>
@@ -46,7 +55,7 @@
 				</div>
 				<div class="row">
 					<h5 class="brief-title col s12">目录  · · · · · ·</h5>
-					<pre class="col s12">{{ book.catalog }}</pre>
+					<pre class="catalog col s12">{{ book.catalog }}</pre>
 				</div>
 				<div class="row">
 					<h5 class="brief-title col s12">喜欢读"追风筝的人"的人也喜欢  · · · · · ·</h5>
