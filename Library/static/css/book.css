@@ -4,6 +4,7 @@
 }
 
 .book-image {
+	padding-top: 1rem ;
 	width: 15rem;
 }
 
@@ -16,6 +17,10 @@
 	text-indent: 2rem;
 }
 
+.catalog {
+	max-height: 30rem;
+}
+
 .rec-img {
 	display: block;
 	margin: auto;
@@ -24,4 +29,15 @@
 
 .rec-title {
 	padding: 1rem;
+}
+
+.tags {
+	display: inline-block;
+}
+
+.tag {
+	display: inline-block;
+	margin: 0.2rem;
+	padding: 0.1rem;
+	background: #F5F5F5;
 }
