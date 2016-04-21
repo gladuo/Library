@@ -1,5 +1,5 @@
 .book-title {
-	margin: 2rem 0 1rem;
+	margin: 4rem 0 2rem;
 	font-weight: 500;
 }
 
@@ -13,11 +13,16 @@
 	padding-left: 1.5rem;
 }
 
+pre {
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
 .brief-text {
 	text-indent: 2rem;
 }
 
-.catalog {
+.catalog, .summary {
 	max-height: 30rem;
 }
 
@@ -41,3 +46,4 @@
 	padding: 0.1rem;
 	background: #F5F5F5;
 }
+

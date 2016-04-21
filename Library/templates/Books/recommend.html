@@ -24,36 +24,22 @@
 				<div class="row">
 					<h3>推荐的书</h3>
 				</div>
+				{% for tag, books in book_list.items %}
 				<div class="rec-category row">
-					<h5>历史</h5>
+					<h5>{{ tag }}</h5>
 					<div class="divider"></div>
 				</div>
 				<div class="row">
+					{% for book in books %}
 					<div class="rec-book col s3">
-						<img class="rec-img" src="{% static 'img/s1727290.jpg' %}" />
+						<a href="{{ book.url }}"><img class="rec-img" src="{{ book.images.large }}" /></a>
 						<div class="rec-title center">
-							<a href="#">追风筝的人</a>
+							<a href="{{ book.url }}">{{ book.title }}</a>
 						</div>
 					</div>
-					<div class="rec-book col s3">
-						<img class="rec-img" src="{% static 'img/s1727290.jpg' %}" />
-						<div class="rec-title center">
-							<a href="#">追风筝的人</a>
-						</div>
-					</div>
-					<div class="rec-book col s3">
-						<img class="rec-img" src="{% static 'img/s1727290.jpg' %}" />
-						<div class="rec-title center">
-							<a href="#">追风筝的人</a>
-						</div>
-					</div>
-					<div class="rec-book col s3">
-						<img class="rec-img" src="{% static 'img/s1727290.jpg' %}" />
-						<div class="rec-title center">
-							<a href="#">追风筝的人</a>
-						</div>
-					</div>
+					{% endfor %}
 				</div>
+				{% endfor %}
 			</div>
 		</div>
         {% endblock %}

@@ -7,9 +7,22 @@
 	</div>
 	<div class="col s8">
 		<h3> {{ user_profile.user.username }} </h3>
-		<h5 class="col s4">已发帖</h5>
-		<h5 class="col s4">2 人关注</h5>
-		<h5 class="col s4">正在关注 8</h5>
+		<ul class="tags col s12">
+			{% for tag in tag_list %}
+			<li class="tag">{{ tag }}</li>
+			{% endfor %}
+		</ul>
 	</div>
+</div>
+<div class="row">
+	<h5 class="col s12">{{ user_profile.user.username }} 最近浏览过的书籍  · · · · · ·</h5>
+		{% for book in book_list %}
+		<div class="rec-book col s3">
+			<a href="{{ book.url }}"><img class="rec-img" src="{{ book.images.large }}" /></a>
+			<div class="rec-title center">
+				<a href="{{ book.url }}">{{ book.title }}</a>
+			</div>
+		</div>
+		{% endfor %}
 </div>
 {% endblock %}

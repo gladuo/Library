@@ -24,10 +24,9 @@
 						<p>丛书: {{ book.series.title }}</p>	
 						<p>ISBN: {{ book.isbn }}</p></p>
 					</div>
-					<div class="op col s2">
+					<!--<div class="op col s2">
 						<div class="row">
 							<a href="#" class="btn btn-block">读过</a>
-							<!--给出交互，评分-->
 						</div>
 						<div class="row">
 							<a href="#" class="btn btn-block">在读</a>
@@ -35,7 +34,7 @@
 						<div class="row">
 							<a href="#" class="btn btn-block">想读</a>
 						</div>
-					</div>
+					</div>-->
 				</div>
 				<div class="row">
 					<h5 class="brief-title col s12">标签</h5>
@@ -47,7 +46,7 @@
 				</div>
 				<div class="row">
 					<h5 class="brief-title col s12">内容简介  · · · · · ·</h5>
-					<p class="col s12 brief-text">{{ book.summary }}</p>
+					<pre class="summary col s12 brief-text">{{ book.summary }}</pre>
 				</div>
 				<div class="row">
 					<h5 class="brief-title col s12">作者简介  · · · · · ·</h5>
@@ -58,31 +57,17 @@
 					<pre class="catalog col s12">{{ book.catalog }}</pre>
 				</div>
 				<div class="row">
-					<h5 class="brief-title col s12">喜欢读"追风筝的人"的人也喜欢  · · · · · ·</h5>
+					<h5 class="brief-title col s12">喜欢读"{{book.title}}"的人也喜欢  · · · · · ·</h5>
+					{% for tag, books in book_list.items %}
+					{% for book in books %}
 					<div class="rec-book col s3">
-						<img class="rec-img" src="{% static 'img/s1727290.jpg' %}"/>
+						<a href="{{ book.url }}"><img class="rec-img" src="{{ book.images.large }}" /></a>
 						<div class="rec-title center">
-							<a href="#">追风筝的人</a>
+							<a href="{{ book.url }}">{{ book.title }}</a>
 						</div>
 					</div>
-					<div class="rec-book col s3">
-						<img class="rec-img" src="{% static 'img/s1727290.jpg' %}"/>
-						<div class="rec-title center">
-							<a href="#">追风筝的人</a>
-						</div>
-					</div>
-					<div class="rec-book col s3">
-						<img class="rec-img" src="{% static 'img/s1727290.jpg' %}"/>
-						<div class="rec-title center">
-							<a href="#">追风筝的人</a>
-						</div>
-					</div>
-					<div class="rec-book col s3">
-						<img class="rec-img" src="{% static 'img/s1727290.jpg' %}"/>
-						<div class="rec-title center">
-							<a href="#">追风筝的人</a>
-						</div>
-					</div>
+					{% endfor %}
+					{% endfor %}
 				</div>
 			</div>
 		</div>

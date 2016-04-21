@@ -34,15 +34,16 @@ class Book(models.Model):
     summary = models.TextField(blank=True)
     catalog = models.TextField(blank=True)
     tags = models.ManyToManyField(Tag, blank=True)
-
-    def save(self, *args, **kwargs):
-        super(Book, self).save(*args, **kwargs)
+    # behaviors = models.ManyToManyField(Behavior, blank=True)
 
     def __unicode__(self):
         return self.title
 
 
-
-
-
-
+# class Behavior(models.Model):
+#     done = models.ChoiceField(blank=True)
+#     doing = jsonfield.JSONField(blank=True)
+#     willing = jsonfield.JSONField(blank=True)
+#
+#     def __unicode__(self):
+#         return self.

@@ -5,23 +5,28 @@ from models import UserProfile, User
 from forms import UserFormEdit, UserProfileForm
 
 from models import UserProfile
+from Books.models import Book
 
 
 def index(request):
-    if not request.user:
+    if request.user.is_authenticated():
+        return redirect('recommendation')
+    else:
         context = {
             'user': request.user
         }
         return render(request, 'Library/index.html', context=context)
-    else:
-        return redirect('search')
 
 
 @login_required()
 def user_profile(request):
     profile, created = UserProfile.objects.get_or_create(user=request.user)
+    book_list = [Book.objects.get(id=b) for b in profile.history]
+    print book_list[:8]
     context = {
         'user_profile': profile,
+        'book_list': book_list[:8],
+        'tag_list': [t for t, n in sorted(profile.favorite_tag.items(), key=lambda d: d[1], reverse=True)][:16]
     }
     return render(request, 'Users/user_profile.html', context=context)
 

@@ -21,3 +21,29 @@
 .settings-nav .active a {
 	color: gray;	
 }
+
+.tags {
+	display: inline-block;
+}
+
+.tag {
+	display: inline-block;
+	margin: 0.2rem;
+	padding: 0.1rem;
+	background: #F5F5F5;
+}
+
+.rec-img {
+	display: block;
+	margin: auto;
+	width: 12rem;
+	height: 16rem;
+}
+
+.rec-title {
+	padding: 1rem;
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
