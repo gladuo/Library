@@ -1,0 +1,6 @@
+Django==1.9.4
+django-jsonfield==0.9.19
+django-registration-redux==1.4
+django-widget-tweaks==1.4.1
+python-dateutil==2.5.1
+six==1.10.0
