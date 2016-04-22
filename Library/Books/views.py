@@ -11,7 +11,7 @@ import random
 
 
 def book_recommendation(request):
-    user_profile = UserProfile.objects.get(user=request.user)
+    user_profile, created = UserProfile.objects.get_or_create(user=request.user)
     tag_list = sorted(user_profile.favorite_tag.items(), key=lambda d: d[1], reverse=True)[:5]
     print tag_list
     book_list = {}
@@ -47,7 +47,7 @@ def book_search(request):
 def book_isbn_info(request, isbn):
     try:
         book = Book.objects.get(isbn=isbn)
-        user_profile = UserProfile.objects.get(user=request.user)
+        user_profile, created = UserProfile.objects.get_or_create(user=request.user)
         if book.id not in user_profile.history:
             user_profile.history.append(book.id)
         if len(user_profile.history) > 8:
@@ -78,7 +78,7 @@ def book_isbn_info(request, isbn):
 def book_id_info(request, id):
     try:
         book = Book.objects.get(id=id)
-        user_profile = UserProfile.objects.get(user=request.user)
+        user_profile, create = UserProfile.objects.get_or_create(user=request.user)
         if id not in user_profile.history:
             user_profile.history.append(id)
         if len(user_profile.history) > 8:

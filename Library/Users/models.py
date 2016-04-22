@@ -18,7 +18,7 @@ class UserProfile(models.Model):
     gender = models.CharField(max_length=6, choices=SEX, default='male')
     university = models.CharField(max_length=128, blank=True)
     description = models.TextField(max_length=128, blank=True)
-    history = jsonfield.JSONField(blank=True, default=[])
+    history = jsonfield.JSONField(blank=True, default=[u'20345'])
     favorite_tag = jsonfield.JSONField(blank=True, default={})
 
     def __unicode__(self):
